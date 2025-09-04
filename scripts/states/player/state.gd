@@ -1,18 +1,10 @@
-class_name State extends Node
+class_name PlayerState extends State
 
 static var player: Player
 
-func enter() -> void:
-	pass
-	
-func exit() -> void:
-	pass
-	
-func process(_delta: float) -> State:
-	return null
-	
-func physics(_delta: float) -> State:
-	return null
+@onready var attack: AttackState = $"../Attack"
 
 func handle_input(_input_event: InputEvent) -> State:
+	if _input_event.is_action_pressed("attack"):
+		return attack
 	return null

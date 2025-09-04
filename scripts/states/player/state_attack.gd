@@ -1,4 +1,4 @@
-class_name AttackState extends State
+class_name AttackState extends PlayerState
 
 @onready var idle: IdleState = $"../Idle"
 @onready var walk: WalkState = $"../Walk"
