@@ -257,4 +257,5 @@ next_state = NodePath("../Wander")
 
 [node name="Wander" type="Node" parent="StateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("6_e12yk")
+wander_speed = 30.0
 next_state = NodePath("../Idle")
