@@ -532,7 +532,6 @@ script = ExtResource("3_qhqgy")
 
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource("4_dqkch")
-speed = null
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("5_qlg0r")
