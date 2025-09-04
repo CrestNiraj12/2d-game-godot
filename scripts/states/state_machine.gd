@@ -8,12 +8,21 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 
 func _process(delta: float) -> void:
+	if curr_state == null:
+		return
+		
 	change_state(curr_state.process(delta))
 
 func _physics_process(delta: float) -> void:
+	if curr_state == null:
+		return
+		
 	change_state(curr_state.physics(delta))
 
 func _unhandled_input(event: InputEvent) -> void:
+	if curr_state == null:
+		return
+		
 	change_state(curr_state.handle_input(event))
 
 func initialize(_character: Character) -> void:

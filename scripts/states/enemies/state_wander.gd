@@ -24,6 +24,3 @@ func process(delta: float) -> State:
 	if _timer > 0:
 		return null
 	return next_state
-	
-func physics(_delta: float) -> State:
-	return null
