@@ -19,17 +19,11 @@ func _physics_process(delta: float) -> void:
 		
 	change_state(curr_state.physics(delta))
 
-func _unhandled_input(event: InputEvent) -> void:
-	if curr_state == null:
-		return
-		
-	change_state(curr_state.handle_input(event))
-
 func initialize(_character: Character) -> void:
 	pass
 
 func change_state(state: State) -> void:
-	if state == null || curr_state == state:
+	if state == null or curr_state == state:
 		return
 		
 	if curr_state:

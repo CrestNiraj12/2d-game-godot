@@ -1,5 +1,5 @@
 class_name EnemyStateMachine extends StateMachine
-	
+
 func initialize(enemy: Character) -> void:
 	if !(enemy is Enemy):
 		return
