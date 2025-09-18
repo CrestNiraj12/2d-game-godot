@@ -5,8 +5,15 @@ extends CanvasLayer
 
 var is_paused: bool = false
 
+enum Action {
+	SAVE,
+	LOAD,
+}
+
 func _ready() -> void:
 	_set_pause(false)
+	save_button.pressed.connect(func(): _on_button_pressed(Action.SAVE))
+	load_button.pressed.connect(func(): _on_button_pressed(Action.LOAD))
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
@@ -18,3 +25,19 @@ func _set_pause(shouldPause: bool) -> void:
 	get_tree().paused = shouldPause
 	visible = shouldPause
 	is_paused = shouldPause
+	
+	if shouldPause:
+		save_button.grab_focus()
+
+func _on_button_pressed(action: Action) -> void:
+	if not is_paused:
+		return
+		
+	match action:
+		Action.SAVE:
+			StateManager.save_game()
+		Action.LOAD:
+			StateManager.load_game()
+			await LevelManager.level_loaded
+	
+	_set_pause(false)
